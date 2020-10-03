@@ -1,5 +1,7 @@
 # libphm
 
+![overview](overview.png)
+
 PHM: Simple Portable Half float(fp16) Map loader/saver in C99.
 
 `libphm` is for reading and storing fp16 image in simplest manner.
