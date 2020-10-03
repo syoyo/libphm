@@ -251,6 +251,8 @@ int load_phm(const char *filename, int *w, int *h, int *c, unsigned short **out_
 
   (*out_image) = img;
 
+  fclose(fp);
+
   return (int)(n_count); // Assume < 2GB
 }
 
@@ -386,6 +388,8 @@ int save_phm(const char *filename, const int w, const int h, const int c, const 
     fprintf(stderr, "Failed to write image data\n");
     return -4;
   }
+
+  fclose(fp);
 
   return (int)n_count;
 }

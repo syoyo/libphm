@@ -26,7 +26,15 @@ int main(int argc, char **argv)
 
   const char *err = nullptr;
 
-  int ret = SaveEXR(img, w, h, c, /* fp16 */1, output_filename.c_str(), &err);
+  std::vector<float> tmp;
+  tmp.resize(w * h * c);
+
+  // Flip Y
+  for (size_t y = 0; y < size_t(h); y++) {
+    memcpy(&tmp[y * (w * c)], &img[(h - y - 1) * (w * c)], sizeof(float) * size_t(w * c));
+  }
+
+  int ret = SaveEXR(tmp.data(), w, h, c, /* fp16 */1, output_filename.c_str(), &err);
 
   if (ret != TINYEXR_SUCCESS) {
     if (err) {

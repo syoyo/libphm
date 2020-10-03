@@ -26,6 +26,11 @@ Little and Big endian should be supported.
 * simple: Simple PHM example.
 * examples/phm2exr: PHM to OpenEXR convert example(uses TinyEXR https://github.com/syoyo/tinyexr).
 
+## Other fp16 format(s)
+
+OpenEXR(EXR) is a well known fp16 file format.
+You can read it with TinyEXR https://github.com/syoyo/tinyexr in C++ and pytinyexr https://pypi.org/project/pytinyexr/ or `imageio` package in Python
+
 ## TODO
 
 * [ ] Support BFLOAT16 format(define new tag name such like `PBHF`?).
