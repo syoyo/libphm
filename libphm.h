@@ -16,7 +16,7 @@ extern "C" {
  * @param[out] w Image width
  * @param[out] h Image height
  * @param[out] c Image channels(1 or 3)
- * @param[out] img Loaded image(in float32 format).
+ * @param[out] out_image Loaded image(in float32 format).
  *
  * @return Image bytes. w x h x c x sizeof(float). 0 or negative = failed to read
  */
@@ -30,7 +30,7 @@ int load_phm_as_float(const char *filename, int *w, int *h, int *c, float **out_
  * @param[out] w Image width
  * @param[out] h Image height
  * @param[out] c Image channels(1 or 3)
- * @param[out] img Loaded image(in fp16 format).
+ * @param[out] out_image Loaded image(in fp16 format).
  *
  * @return Image bytes. w x h x c x sizeof(float). 0 or negative = failed to read
  */
@@ -44,11 +44,11 @@ int load_phm(const char *filename, int *w, int *h, int *c, unsigned short **out_
  * @param[in] w Image width
  * @param[in] h Image height
  * @param[in] c Image channels(1 or 3)
- * @param[in] img Loaded image(in float32 format).
+ * @param[in] image Input image(in float32 format).
  *
  * @return Image bytes written. w x h x c x sizeof(fp16). 0 or native = failed to save.
  */
-int save_phm_from_float(const char *filename, const int w, const int h, const int c, const float *out_image);
+int save_phm_from_float(const char *filename, const int w, const int h, const int c, const float *image);
 
 
 /*
@@ -59,11 +59,11 @@ int save_phm_from_float(const char *filename, const int w, const int h, const in
  * @param[in] w Image width
  * @param[in] h Image height
  * @param[in] c Image channels(1 or 3)
- * @param[in] img Loaded image(in fp16 format).
+ * @param[in] image Input image(in fp16 format).
  *
  * @return Image bytes written. w x h x c x sizeof(fp16). 0 or native = failed to save.
  */
-int save_phm(const char *filename, const int w, const int h, const int c, const unsigned short *out_image);
+int save_phm(const char *filename, const int w, const int h, const int c, const unsigned short *image);
 
 #ifdef __cplusplus
 }
